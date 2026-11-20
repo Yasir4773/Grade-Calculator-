@@ -1,0 +1,165 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   
+    <title>Document</title>
+    <style>
+        Body{
+            background-image:url("images/background.png");
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-position: center;
+            color:whitesmoke;
+            justify-content:center;
+            display:flex;
+            align-items:center;
+            height:100vh
+            padding: 20px 0;
+     }
+        div{
+            background-color:rgb(43, 107, 163);
+            display:flex;
+            flex-direction: column;
+            justify-content:center;
+            align-items:center; 
+            padding:(60px );
+            margin:40px;
+            border-radius:50px;
+            width:500px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+        }
+        h1{
+            text-align:center;
+            color:black;
+            margin-bottom :25px;
+
+        }
+        label{
+            display:block;
+            width:80%;
+            padding:12px;
+            margin-bottom:8px;
+            margin: top 8px;
+            margin: left 12px;
+            margin: right 12px;
+            color:aliceblue;
+            font-weight:bold;
+        }
+        input{
+            padding:12px;
+            margin-bottom:8px;
+            margin: top 8px;
+            margin: left 12px;
+            margin: right 12px;
+            border:8px solid #ccc;
+            width:70%;
+            border-radius:8px;
+            box-sizing:border-box;
+
+
+
+        }
+        button{
+            width: 80%;
+            padding: 12px;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 10s;
+           
+
+        }
+        #psult{
+            background-color:aqua;
+            color:black;
+            font-weight:bold;
+
+        }
+        .grade{
+            background-color:aqua;
+            color:black;
+            font-weight:bold;
+            width:40%;
+
+        }
+        .status{
+            background-color:aquamarine;
+            color:Black;
+            width:40%;
+            font-weight:bold;
+        }
+    </style>
+ </head>
+ <body>
+    <div>
+        <h1>CALCULATE YOUR GRADE</h1>
+        <label>Physics Marks:</label>
+        <input type="number" id="1" min="1" max="100" placeholder="Marks score in Physics">
+        <label>Chemistry Marks:</label>
+        <input type="number" id="2" min="1" max="100" placeholder="Marks score in chemistry">
+        <label>English Marks:</label>
+        <input type="number" id="3" min="1" max="100" placeholder="Marks score in English">
+        <label>Hindi Marks:</label>
+        <input type="number" id="4" min="1" max="100" placeholder="Marks score in Hindi">
+        <label>Maths Marks:</label>
+        <input type="number" id="5" min="1" max="100" placeholder="Marks score in Maths">
+        <button onclick="result()">Calculate your marks</button>
+        <label>Result</label>
+        <input type="number" id="pesult" readonly>
+        <label>GRADE</label>
+        <input type="text" Class="grade" id="grade" readonly>
+        <label>Status</label>
+        <input type="text" Class="status" id="status" readonly>
+
+    </div>
+    <script>
+        
+        function result(){
+            let a = Number(document.getElementById("1").value);
+            let b = Number(document.getElementById("2").value);
+            let c = Number(document.getElementById("3").value);
+            let d = Number(document.getElementById("4").value);
+            let e = Number(document.getElementById("5").value);
+            let f=(a+b+c+d+e)/5;
+            document.getElementById("pesult").value=f;
+
+            // Determine grade based on average
+            let grade;
+            if(f >= 90){
+                grade = "A+";
+            } else if(f >= 80){
+                grade = "A";
+            } else if(f >= 70){
+                grade = "B+";
+            } else if(f >= 60){
+                grade = "B";
+            } else if(f >= 50){
+                grade = "C";
+            }
+            else if(f >= 40){
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+            document.getElementById("grade").value=grade;
+        
+            let Status;{
+             if(f>=40){
+               Status="PASS AND PROMOTED";
+             }
+            else{
+               Status="FAIL REPEAT THE YEAR";
+             }
+            document.getElementById("status").value=Status;
+
+    }
+}
+    </script>
+    
+ </body>
+ </html>
